@@ -51,7 +51,12 @@ class handler(BaseHTTPRequestHandler):
         self.end_headers()
         update = json.loads(post_data)
         handle_update(update)
-        return
+
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header('Content-type', 'text/html')
+        self.end_headers()
+        self.wfile.write("Hello, this is a Telegram bot server. Please use POST requests to interact with the bot.".encode())
 
 # For local testing
 if __name__ == "__main__":
