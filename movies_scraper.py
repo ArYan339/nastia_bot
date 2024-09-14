@@ -2,7 +2,8 @@ import os
 import requests
 from bs4 import BeautifulSoup
 
-API_KEY = os.getenv("40b7d0605c8bef1c91f32eb3f071ce69e6c010f9")
+API_KEY = os.getenv("40b7d0605c8bef1c91f32eb3f071ce69e6c010f9
+")
 BASE_URL = "https://185.53.88.104"
 
 def search_movies(query):
@@ -26,8 +27,7 @@ def get_movie(url):
         download_links = {}
         for link in links:
             quality = link.text
-            short_link = shorten_url(link['href'])
-            download_links[quality] = short_link
+            download_links[quality] = shorten_url(link['href']) if API_KEY else link['href']
         return {"title": title, "links": download_links}
     except Exception as e:
         print(f"Error in get_movie: {e}")
