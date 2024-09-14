@@ -7,7 +7,7 @@ logger = logging.getLogger(__name__)
 
 url_list = {}
 try:
-    api_key = os.environ["URLSHORTX_API_KEY"]
+    api_key = os.environ["40b7d0605c8bef1c91f32eb3f071ce69e6c010f9"]
 except KeyError:
     logger.error("URLSHORTX_API_KEY environment variable is not set")
     api_key = None
